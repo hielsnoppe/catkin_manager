@@ -4,7 +4,10 @@
 
 Expects the following:
 
-    catkin_ws/src/
+    catkin_ws/
+        build/
+        devel/
+        src/
         packages.yaml
         
 Where `packages.yaml` looks like this:
