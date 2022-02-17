@@ -65,11 +65,18 @@ def link(delete):
 def build():
     print("catkin_make && source devel/setup.bash")
 
+@click.command()
+def dependencies():
+
+    cm = CatkinManager()
+    cm.dependency_graph()
+
 app.add_command(info)
 app.add_command(link)
 app.add_command(build)
 app.add_command(add)
 app.add_command(rm)
+app.add_command(dependencies)
 
 if __name__ == '__main__':
     app(obj={})

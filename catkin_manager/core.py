@@ -11,6 +11,9 @@ import os.path
 from pathlib import Path
 from enum import Enum
 
+from glob import glob
+import xml.etree.cElementTree as ET
+
 import click
 import yaml
 
@@ -159,6 +162,26 @@ class CatkinManager:
 
     def create_links(self, delete=False):
         self.__write_workspace(delete)
+
+
+    def dependency_graph(self):
+        edges = []
+   
+        #for file in Path('src').rglob('package.xml'):
+        for file in list(glob("./src/**/package.xml", recursive=True)):
+
+            tree = ET.ElementTree(file=file)
+            root = tree.getroot()
+
+            package = ''
+
+            for elem in root:
+                if elem.tag == 'name':
+                    package = elem.text
+                if elem.tag == 'depend':
+                    edges.append('{} -> {}'.format(package, elem.text))
+
+        print("digraph G {{\n{}\n}}".format('\n'.join(edges)))
 
 
     def print_info(self, verbose=False):
