@@ -1,5 +1,7 @@
 # catkin_manager
 
+[![CodeFactor](https://www.codefactor.io/repository/github/hielsnoppe/catkin_manager/badge)](https://www.codefactor.io/repository/github/hielsnoppe/catkin_manager)
+
 Manage catkin workspaces with symlinks.
 
 **Work in progress!**
