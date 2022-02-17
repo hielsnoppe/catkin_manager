@@ -1,5 +1,7 @@
 # catkin_manager
 
+Manage catkin workspaces with symlinks.
+
 **Work in progress!**
 
 ## The problem
